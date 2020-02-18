@@ -1,0 +1,20 @@
+<project name="CompressJS" basedir="." >
+  <path id="yuicompressor.path">
+    <fileset dir="yuicompressor">
+        <include name="**/*.jar"/>
+    </fileset>
+  </path>
+  <taskdef name="yuicompressor" classname="com.welldoc.ant.task.YUICompressorTask" classpathref="yuicompressor.path" />
+
+  <target name="compress">
+    <yuicompressor>
+      <fileset dir="en-US">
+        <include name="**/*.js"/>
+        <include name="**/*.css" />
+		<exclude name="**/*.min.js"/>
+		<exclude name="**/*applozic*.js"/>
+      </fileset>
+    </yuicompressor>
+  </target>
+
+</project>
